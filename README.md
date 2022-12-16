@@ -37,6 +37,10 @@ If you would like to have a custom `content-type` header for the page (and not i
 
 The url for the image used in the meta tags can be set using the `meta_image` key.
 
+### Updating the header
+
+This is the same as updating a page, except you should send a `PUT` request to the `/__header` path and only provide the markdown for the header (and no table).
+
 ### Getting raw pages
 
 If you would like to update a page, instead of re-writing the entire page since it is processed, you can append `?raw` to any url to get the source as plain text. (Including the table with settings to configure the page). This can be direcetly copied into the body of the request you send to update a page. No authentication is needed to do this.

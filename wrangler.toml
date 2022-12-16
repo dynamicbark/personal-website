@@ -1,0 +1,12 @@
+name = "personal-website"
+main = "src/index.ts"
+compatibility_date = "2022-12-16"
+
+workers_dev = false
+
+routes = [
+    { pattern = "verysmol.com/*", zone_id = "6d0752e57d21b1660830d9f9fb3e8074" },
+]
+kv_namespaces = [
+    { binding = "PERSONAL_WEBSITE_PRD", id = "6f38211c6c1e44398c250a348fbb1b46", preview_id = "6f38211c6c1e44398c250a348fbb1b46" },
+]

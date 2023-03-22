@@ -20,9 +20,10 @@ let pageTemplate = `<!DOCTYPE html>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta property="og:type" content="website" />
+		<meta property="og:locale" content="en-US" />
 		<meta property="og:url" content="{__PAGE_URL}" />
+		<meta property="og:site_name" content="{__PAGE_META_SITE_NAME}" />
 		<meta property="twitter:card" content="summary_large_image" />
-		<meta property="og:locale" content="en-US" />  
 		{__PAGE_META_TITLE}
 		{__PAGE_META_DESCRIPTION}
 		{__PAGE_META_IMAGE}
@@ -69,6 +70,7 @@ export default {
     // Get page
     if (request.method === 'GET') {
       const headerValue = (await env.PERSONAL_WEBSITE_PRD.get('/__header')) || 'None';
+      const pageMetaSiteName = (await env.PERSONAL_WEBSITE_PRD.get('/__site_name')) || '???';
       let status = 200;
       let pageValue = await env.PERSONAL_WEBSITE_PRD.get(pathname);
       // If the page was not found or if the page url starts with two underscores
@@ -132,7 +134,7 @@ export default {
       const pageUrl = url.href;
       // Page title
       const pageMetaTitle = [
-        `<title>${settings.title || '???'}</title>`,
+        `<title>${settings.title || '???'} - ${pageMetaSiteName}</title>`,
         `<meta property="og:title" content="${settings.title || '???'}"/>`,
       ].join('\n');
       // Page description
@@ -159,6 +161,7 @@ export default {
       return new Response(
         pageTemplate
           .replace('{__PAGE_URL}', pageUrl)
+          .replace('{__PAGE_META_SITE_NAME}', pageMetaSiteName)
           .replace('{__PAGE_META_TITLE}', pageMetaTitle)
           .replace('{__PAGE_META_DESCRIPTION}', pageMetaDescription)
           .replace('{__PAGE_META_IMAGE}', pageMetaImage)

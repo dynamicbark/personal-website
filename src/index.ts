@@ -69,6 +69,23 @@ export default {
     const pathname = url.pathname.toLowerCase();
     // Get page
     if (request.method === 'GET') {
+      if (pathname === '/__routes') {
+        if (request.headers.get('authorization') !== env.AUTH_HEADER) {
+          return new Response('403: Forbidden', {
+            status: 403,
+            headers: {
+              'content-type': 'text/plain',
+            },
+          });
+        }
+        const pathNames = await env.PERSONAL_WEBSITE_PRD.list();
+        return new Response(JSON.stringify(pathNames.keys.map((value) => value.name).filter((value) => value.startsWith('/'))), {
+          status: 200,
+          headers: {
+            'content-type': 'application/json',
+          },
+        });
+      }
       const headerValue = (await env.PERSONAL_WEBSITE_PRD.get('/__header')) || 'None';
       const pageMetaSiteName = (await env.PERSONAL_WEBSITE_PRD.get('/__site_name')) || '???';
       let status = 200;

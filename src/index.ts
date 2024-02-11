@@ -16,55 +16,55 @@ markdownIt.linkify.set({ fuzzyEmail: false });
 
 let pageTemplate = `<!DOCTYPE html>
 <html lang="en-US">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta property="og:type" content="website" />
-		<meta property="og:locale" content="en-US" />
-		<meta property="og:url" content="{__PAGE_URL}" />
-		<meta property="og:site_name" content="{__PAGE_META_SITE_NAME}" />
-		<meta property="twitter:card" content="summary_large_image" />
-		{__PAGE_META_TITLE}
-		{__PAGE_META_DESCRIPTION}
-		{__PAGE_META_IMAGE}
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.onload=null;this.removeAttribute('media');" />
-		<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" /></noscript>
-		<style>
-			html, body {
-				width: 100%;
-				height: 100%;
-				margin: 0;
-				padding: 0;
-				background-color: #ffffff;
-			}
-			.markdown-body {
-				box-sizing: border-box;
-				min-width: 200px;
-				max-width: 980px;
-				margin: 0 auto;
-				padding: 45px;
-			}
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en-US" />
+    <meta property="og:url" content="{__PAGE_URL}" />
+    <meta property="og:site_name" content="{__PAGE_META_SITE_NAME}" />
+    <meta property="twitter:card" content="summary_large_image" />
+    {__PAGE_META_TITLE}
+    {__PAGE_META_DESCRIPTION}
+    {__PAGE_META_IMAGE}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.onload=null;this.removeAttribute('media');" />
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" /></noscript>
+    <style>
+      html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #ffffff;
+      }
+      .markdown-body {
+        box-sizing: border-box;
+        min-width: 200px;
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 45px;
+      }
       a {
         text-decoration: underline !important;
       }
-			@media (prefers-color-scheme: dark) {
-				html, body {
-					background-color: #0d1117;
-				}
-			}
-			@media (max-width: 767px) {
-				.markdown-body {
-					padding: 15px;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<div class="markdown-body">
-		{__PAGE_HEADER}
-		{__PAGE_CONTENTS}
-		</div>
-	</body>
+      @media (prefers-color-scheme: dark) {
+        html, body {
+          background-color: #0d1117;
+        }
+      }
+      @media (max-width: 767px) {
+        .markdown-body {
+          padding: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="markdown-body">
+    {__PAGE_HEADER}
+    {__PAGE_CONTENTS}
+    </div>
+  </body>
 </html>`;
 
 export default {

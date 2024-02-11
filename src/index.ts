@@ -27,7 +27,8 @@ let pageTemplate = `<!DOCTYPE html>
 		{__PAGE_META_TITLE}
 		{__PAGE_META_DESCRIPTION}
 		{__PAGE_META_IMAGE}
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.onload=null;this.removeAttribute('media');" />
+		<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" /></noscript>
 		<style>
 			html, body {
 				width: 100%;
@@ -43,6 +44,9 @@ let pageTemplate = `<!DOCTYPE html>
 				margin: 0 auto;
 				padding: 45px;
 			}
+      a {
+        text-decoration: underline !important;
+      }
 			@media (prefers-color-scheme: dark) {
 				html, body {
 					background-color: #0d1117;
@@ -159,7 +163,7 @@ export default {
         ? ''
         : [
             `<meta property="og:description" content="${settings.description}"/>`,
-            `<meta property="description" content="${settings.description}"/>`,
+            `<meta name="description" content="${settings.description}"/>`,
           ].join('\n');
       // Page meta tags image
       const pageMetaImage = !settings.meta_image

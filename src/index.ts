@@ -46,10 +46,15 @@ let pageTemplate = `<!DOCTYPE html>
       }
       a {
         text-decoration: underline !important;
+        color: #1f6feb !important;
       }
       @media (prefers-color-scheme: dark) {
         html, body {
+          color: #fff;
           background-color: #0d1117;
+        }
+        a {
+          color: #58a6ff !important;
         }
       }
       @media (max-width: 767px) {
@@ -196,7 +201,7 @@ export default {
           headers: {
             'content-type': 'text/html',
           },
-        }
+        },
       );
     }
     // Create/update page
